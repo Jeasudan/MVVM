@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVVM</title>
+    <script src="src/watcher.js"></script>
+    <script src="src/observer.js"></script>
+    <script src="src/compile.js"></script>
+    <script src="src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{name}}
+        <p>{{name}}</p>
+        <p>{{hobbies.a}}</p>
+        <p v-text="name"></p>
+        <p v-html="name"></p>
+        <input type="text" v-model="name">
+        <button v-on:click="show">点击一下</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                name:'jeasu',
+                hobbies:{
+                    a:'a'
+                }
+            },
+            methods:{
+                show(){
+                    // console.log('show');
+                    // console.log(this);
+                    // console.log(this.$data.name); //jeasu
+                    this.$data.name = 'Pakalana';
+                    // this.$data.name = {
+                    //     a:'aaa'
+                    // };
+                    console.log(this);
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
